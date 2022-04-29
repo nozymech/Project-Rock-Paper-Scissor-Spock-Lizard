@@ -2,11 +2,17 @@ let game = ["Rock","Paper","Scissors"]
 
 function computerPlay() {
 choose = game[Math.floor(Math.random()*game.length)]
-return console.log(choose)
+return choose
 }
 
 function playRound(playerSelection, computerSelection) {
-   // your code here!
+  if ( computerSelection == "Rock" ) {
+    return "You Lose! Paper beats Rock";
+  } else if ( computerSelection == "Scissors") {
+    return "You Win! Rock beats Scissors"
+  } else {
+    return "It`s a tie"
+  }              
  }
  
  const playerSelection = "rock";
