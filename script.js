@@ -27,8 +27,7 @@ function playRound(playerSelection, computerSelection) {
   for (let i = 0; i < 5; i++) {
     const playerSelection = prompt("Rock? Paper? Scissors?");;
     const computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
+    alert(playRound(playerSelection, computerSelection));
  }
  }
 
- game()
