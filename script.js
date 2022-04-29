@@ -5,4 +5,10 @@ choose = game[Math.floor(Math.random()*game.length)]
 return console.log(choose)
 }
 
-computerPlay();
+function playRound(playerSelection, computerSelection) {
+   // your code here!
+ }
+ 
+ const playerSelection = "rock";
+ const computerSelection = computerPlay();
+ console.log(playRound(playerSelection, computerSelection));
