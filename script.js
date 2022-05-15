@@ -4,10 +4,6 @@ function computerPlay() {
 choose = stone[Math.floor(Math.random()*stone.length)]
 return choose
 }
-function playerPlay(){
-  result = "paper"
-return result
-}
 
 function playRound(playerSelection, computerSelection) {
   if ( playerSelection== computerSelection ) {
@@ -25,17 +21,19 @@ function playRound(playerSelection, computerSelection) {
   } else if (playerSelection=="scissors" && computerSelection =="rock"){
     return "You lose! Rock beats Scissors"
   }
-  else {
-    return "ERROR"
-  }
 }
 
 
 function game() {
-    const computerSelection = computerPlay();
-    const playerSelection = playerPlay();
-    const result = document.getElementById("result")
-    result.innerText= playRound(playerSelection, computerSelection);
+  const buttons = document.querySelectorAll('button');
+  playerSelection= buttons.forEach((button)=>{
+    button.addEventListener('click',()=>{
+      console.log(button.id);
+    });
+  });
+  const computerSelection = computerPlay();
+  const result = document.getElementById("result")
+  result.innerText= playRound(playerSelection, computerSelection);
  }
 
 
