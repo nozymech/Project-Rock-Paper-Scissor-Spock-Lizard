@@ -5,18 +5,18 @@ const player = document.getElementById("player")
 const computer = document.getElementById("computer")
 let playerScore = 0 ;
 let computerScore = 0 ;
-player.innerHTML = `Player ${playerScore} point  `;
-computer.innerHTML = `Computer ${computerScore} point`;
+player.innerHTML = `Player: ${playerScore} point  `;
+computer.innerHTML = `Computer: ${computerScore} point`;
 result.innerText= "It shows win or lose"
 
 function playerAddOne()  {
   playerScore= playerScore + 1;
-  player.innerHTML = `Player ${playerScore} point  `;
+  player.innerHTML = `Player: ${playerScore} point  `;
 }
 
 function computerAddOne()  {
   computerScore= computerScore + 1;
-  computer.innerHTML = `Computer ${computerScore} point`;
+  computer.innerHTML = `Computer: ${computerScore} point`;
 }
 
 function computerPlay() {
