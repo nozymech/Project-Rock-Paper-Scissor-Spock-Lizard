@@ -1,7 +1,8 @@
 let stone = ["rock","paper","scissors"]
 const result = document.getElementById("result")
+// connect all three buttons to javascript as a node list 
 const buttons = document.querySelectorAll('button');
-const player = document.getElementById("player")
+const player = document.getElementById("player");
 const computer = document.getElementById("computer")
 let playerScore = 0 ;
 let computerScore = 0 ;
@@ -20,8 +21,17 @@ function computerAddOne()  {
 }
 
 function computerPlay() {
-choose = stone[Math.floor(Math.random()*stone.length)]
-return choose
+  choose = stone[Math.floor(Math.random()*stone.length)]
+  return choose
+}
+function playerChoose() {
+  //map() is to loop through each button
+  buttons.forEach((button) => {
+    // for each button have a event listener
+    button.addEventListener('click',()=>{
+       alert(button.id)
+    })
+  });
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -50,11 +60,12 @@ function playRound(playerSelection, computerSelection) {
 
 
 function game() {
+  let computerSelection = computerPlay();
+  //let playerSelection= playerChoose();
   playerSelection= "paper"
-  const computerSelection = computerPlay();
   result.innerText= playRound(playerSelection, computerSelection);
- }
-
+}
+  
 
 
 
