@@ -1,4 +1,23 @@
 let stone = ["rock","paper","scissors"]
+const result = document.getElementById("result")
+const buttons = document.querySelectorAll('button');
+const player = document.getElementById("player")
+const computer = document.getElementById("computer")
+let playerScore = 0 ;
+let computerScore = 0 ;
+player.innerHTML = `Player ${playerScore} point  `;
+computer.innerHTML = `Computer ${computerScore} point`;
+result.innerText= "It shows win or lose"
+
+function playerAddOne()  {
+  playerScore= playerScore + 1;
+  player.innerHTML = `Player ${playerScore} point  `;
+}
+
+function computerAddOne()  {
+  computerScore= computerScore + 1;
+  computer.innerHTML = `Computer ${computerScore} point`;
+}
 
 function computerPlay() {
 choose = stone[Math.floor(Math.random()*stone.length)]
@@ -9,30 +28,30 @@ function playRound(playerSelection, computerSelection) {
   if ( playerSelection== computerSelection ) {
     return "It`s a tie";
   } else if ( playerSelection=="rock" && computerSelection =="scissors") {
-    return "You win! Rock beats Scissors"
+    playerAddOne();
+    return "You win! Rock beats Scissors" 
   } else if (playerSelection=="rock" && computerSelection =="paper"){
+    computerAddOne();
     return "You lose! Paper beats Rocks"
   } else if ( playerSelection=="paper" && computerSelection =="rock") {
+    playerAddOne()
     return "You win! Paper beats Rock"
   }  else if (playerSelection=="paper" && computerSelection =="scissors"){
-  return "You lose! Scissor beats Paper"
+    computerAddOne()
+    return "You lose! Scissor beats Paper"
   } else if ( playerSelection=="scissors" && computerSelection =="paper") {
+    playerAddOne()
     return "You win! Scissor beats Paper"
   } else if (playerSelection=="scissors" && computerSelection =="rock"){
+    computerAddOne()
     return "You lose! Rock beats Scissors"
   }
 }
 
 
 function game() {
-  const buttons = document.querySelectorAll('button');
-  playerSelection= buttons.forEach((button)=>{
-    button.addEventListener('click',()=>{
-      console.log(button.id);
-    });
-  });
+  playerSelection= "paper"
   const computerSelection = computerPlay();
-  const result = document.getElementById("result")
   result.innerText= playRound(playerSelection, computerSelection);
  }
 
