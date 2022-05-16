@@ -9,12 +9,23 @@ let computerScore = 0 ;
 let buttonClick = 0 ;
 player.innerHTML = `Player: ${playerScore} point  `;
 computer.innerHTML = `Computer: ${computerScore} point`;
-result.innerText= "It shows win or lose"
-  //get index from forEach
+result.innerText= "It shows result"
+
+//get index from map
 buttons.map((button,index) => {
   // for each button wii have a event listener
   button.addEventListener('click',()=>{
-     buttonClick =index;
+    let playerSelection= index;
+    let computerSelection = computerPlay();
+    playRound(playerSelection, computerSelection);
+    if (playerScore >=5){
+      result.innerText=`You win!  Reload after 3s...`
+      setTimeout(()=>{location.reload()} , 3000)
+    }
+    else if (computerScore >=5){
+      result.innerText=`You lose ! Reload after 3s...`
+      setTimeout(()=>{location.reload()} , 3000)
+    }
   })
 });
 
@@ -38,43 +49,33 @@ function playerChoose() {
 
 function playRound(playerSelection, computerSelection) {
   //0: rock 1:paper 2:scissor
-  if ( playerSelection== computerSelection ) {
-    return "It`s a tie";
+  if ( playerSelection == computerSelection ) {
+    result.innerText=  "It`s a tie";
   } else if ( playerSelection==0 && computerSelection ==2) {
     playerAddOne();
-    return "You win! Rock beats Scissors" 
+    result.innerText=  "You win! Rock beats Scissors" 
   } else if (playerSelection==0 && computerSelection ==1){
     computerAddOne();
-    return "You lose! Paper beats Rocks"
+    result.innerText=  "You lose! Paper beats Rocks"
   } else if ( playerSelection==1 && computerSelection ==0) {
     playerAddOne()
-    return "You win! Paper beats Rock"
+    result.innerText=  "You win! Paper beats Rock"
   }  else if (playerSelection==1 && computerSelection ==2){
     computerAddOne()
-    return "You lose! Scissor beats Paper"
+    result.innerText=  "You lose! Scissor beats Paper"
   } else if ( playerSelection==2 && computerSelection ==1) {
     playerAddOne()
-    return "You win! Scissor beats Paper"
+    result.innerText=  "You win! Scissor beats Paper"
   } else if (playerSelection==2 && computerSelection ==0){
     computerAddOne()
-    return "You lose! Rock beats Scissors"
+    result.innerText=  "You lose! Rock beats Scissors"
   }
 }
 
 
-function game() {
-  let computerSelection = computerPlay();
-  let playerSelection= buttonClick;
-  result.innerText= playRound(playerSelection, computerSelection);
-  if (playerScore >=5){
-    alert ("You win!")
-    location.reload() 
-  }
-  else if (computerScore >=5){
-    alert("You lose!")
-    location.reload() 
-  }
-}
+
+
+
   
 
 
