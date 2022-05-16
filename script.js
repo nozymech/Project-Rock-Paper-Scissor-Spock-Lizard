@@ -18,6 +18,7 @@ buttons.map((button,index) => {
   })
 });
 
+
 function playerAddOne()  {
   playerScore= playerScore + 1;
   player.innerHTML = `Player: ${playerScore} point  `;
@@ -65,6 +66,14 @@ function game() {
   let computerSelection = computerPlay();
   let playerSelection= buttonClick;
   result.innerText= playRound(playerSelection, computerSelection);
+  if (playerScore >=5){
+    alert ("You win!")
+    location.reload() 
+  }
+  else if (computerScore >=5){
+    alert("You lose!")
+    location.reload() 
+  }
 }
   
 
