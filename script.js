@@ -11,13 +11,14 @@ player.innerHTML = `Player: ${playerScore} point  `;
 computer.innerHTML = `Computer: ${computerScore} point`;
 result.innerText= "It shows result"
 
-//get index from map
 buttons.map((button,index) => {
+  //get index from map
   // for each button wii have a event listener
   button.addEventListener('click',()=>{
     let playerSelection= index;
     let computerSelection = computerPlay();
     playRound(playerSelection, computerSelection);
+    // it shows game result
     if (playerScore >=5){
       result.innerText=`You win!  Reload after 3s...`
       setTimeout(()=>{location.reload()} , 3000)
