@@ -1,4 +1,4 @@
-let stone = ["rock","paper","scissors"]
+let stone = ["rock","paper","scissors","spock", "lizard"]
 const result = document.getElementById("result")
 // connect all three buttons to javascript as a node list 
 const buttons = [].slice.call(document.querySelectorAll('button'));
@@ -49,28 +49,71 @@ function playerChoose() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  //0: rock 1:paper 2:scissor
+  //0: rock 1:paper 2:scissor 3:spock 4:lizard
   if ( playerSelection == computerSelection ) {
     result.innerText=  "It`s a tie";
   } else if ( playerSelection==0 && computerSelection ==2) {
     playerAddOne();
-    result.innerText=  "You win! Rock beats Scissors" 
-  } else if (playerSelection==0 && computerSelection ==1){
-    computerAddOne();
-    result.innerText=  "You lose! Paper beats Rocks"
-  } else if ( playerSelection==1 && computerSelection ==0) {
-    playerAddOne()
-    result.innerText=  "You win! Paper beats Rock"
-  }  else if (playerSelection==1 && computerSelection ==2){
-    computerAddOne()
-    result.innerText=  "You lose! Scissor beats Paper"
-  } else if ( playerSelection==2 && computerSelection ==1) {
-    playerAddOne()
-    result.innerText=  "You win! Scissor beats Paper"
+    result.innerText=  "You win! Rock crushes Scissors" 
   } else if (playerSelection==2 && computerSelection ==0){
     computerAddOne()
-    result.innerText=  "You lose! Rock beats Scissors"
-  }
+    result.innerText=  "You lose! Rock crushes Scissors"
+  } else if (playerSelection==0 && computerSelection ==1){
+    computerAddOne();
+    result.innerText=  "You lose! Paper covers Rock"
+  } else if ( playerSelection==1 && computerSelection ==0) {
+    playerAddOne()
+    result.innerText=  "You win! Paper covers Rock"
+  }  else if (playerSelection==1 && computerSelection ==2){
+    computerAddOne()
+    result.innerText=  "You lose! Scissors cuts Paper"
+  } else if ( playerSelection==2 && computerSelection ==1) {
+    playerAddOne()
+    result.innerText=  "You win! Scissors cuts Paper"
+  } else if ( playerSelection==0 && computerSelection ==4) {
+    playerAddOne()
+    result.innerText=  "You win! Rock crushes Lizard"
+  } else if (playerSelection==4 && computerSelection ==0){
+    computerAddOne()
+    result.innerText=  "You lose! Rock crushes Lizard"
+  } else if ( playerSelection==4 && computerSelection ==3) {
+    playerAddOne()
+    result.innerText=  "You win! Lizard poisons Spock"
+  } else if (playerSelection==3 && computerSelection ==4){
+    computerAddOne()
+    result.innerText=  "You lose! Lizard poisons Spock"
+  } else if ( playerSelection==3 && computerSelection ==2) {
+    playerAddOne()
+    result.innerText=  "You win! Spock smashes Scissors"
+  } else if (playerSelection==2 && computerSelection ==3){
+    computerAddOne()
+    result.innerText=  "You lose! Spock smashes Scissors"
+  } else if ( playerSelection==2 && computerSelection ==4) {
+    playerAddOne()
+    result.innerText=  "You win! Scissors decapitates Lizard"
+  } else if (playerSelection==4 && computerSelection ==2){
+    computerAddOne()
+    result.innerText=  "You lose! Scissors decapitates Lizard"
+  } else if ( playerSelection==4 && computerSelection ==1) {
+    playerAddOne()
+    result.innerText=  "You win! Lizard eats Paper"
+  } else if (playerSelection==1 && computerSelection ==4){
+    computerAddOne()
+    result.innerText=  "You lose! Lizard eats Paper"
+  } else if ( playerSelection==1 && computerSelection ==3) {
+    playerAddOne()
+    result.innerText=  "You win! Paper disproves Spock"
+  } else if (playerSelection==3 && computerSelection ==1){
+    computerAddOne()
+    result.innerText=  "You lose! Paper disproves Spock"
+  } else if ( playerSelection==3 && computerSelection ==0) {
+    playerAddOne()
+    result.innerText=  "You win! Spock vaporizes Rock"
+  } else if (playerSelection==0 && computerSelection ==3){
+    computerAddOne()
+    result.innerText=  "You lose! Spock vaporizes Rock"
+  } 
+
 }
 
 
