@@ -6,7 +6,7 @@ const player = document.getElementById("player");
 const computer = document.getElementById("computer")
 let playerScore = 0 ;
 let computerScore = 0 ;
-let buttonClick = 0 ;
+// player & computer start with 0 point
 player.innerHTML = `Player: ${playerScore} point  `;
 computer.innerHTML = `Computer: ${computerScore} point`;
 result.innerText= "It shows result"
@@ -33,7 +33,7 @@ buttons.map((button,index) => {
 
 function playerAddOne()  {
   playerScore= playerScore + 1;
-  player.innerHTML = `Player: ${playerScore} point  `;
+  player.innerHTML = `Player: ${playerScore} point`;
 }
 
 function computerAddOne()  {
@@ -42,10 +42,7 @@ function computerAddOne()  {
 }
 
 function computerPlay() {
-  return Math.floor(Math.random()*stone.length)
-}
-function playerChoose() {
-  //map() is to loop through each button (have to form array)
+  return Math.floor(Math.random()*stone.length);
 }
 
 function playRound(playerSelection, computerSelection) {
